@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/chenzhongchen27/firstfly.cn#readme",
   "dependencies": {
+    "commander": "^2.15.0",
     "koa": "^2.5.0",
     "koa-router": "^7.4.0"
   }
