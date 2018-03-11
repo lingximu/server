@@ -4,11 +4,14 @@ var Router = require('koa-router');
 var app = new Koa();
 var router = new Router();
 
-router.get('/', (ctx, next) => {
-  ctx.body = "首页"
-});
+module.exports = (options) => {
 
-app
-  .use(router.routes())
+    router.get('/', (ctx, next) => {
+      ctx.body = "首页"
+    });
 
-app.listen(8000)
+    app
+      .use(router.routes())
+
+    return app;
+}
