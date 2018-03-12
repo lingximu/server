@@ -5,8 +5,7 @@ module.exports = {
     watch  : true,
     args: "app",
     env: {
-      "NODE_ENV": "production",
-      "PORT": "80"
+      "NODE_ENV": "production"
     },
   }]
 }
