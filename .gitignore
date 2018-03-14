@@ -1,4 +1,8 @@
 
+.env
+config/**
+!config/.gittrace
+
 # Created by https://www.gitignore.io/api/code,node,linux,macos,windows
 
 ### Code ###
