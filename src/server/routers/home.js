@@ -5,6 +5,12 @@ const url = require('url')
 
 const proxy = httpProxy.createProxyServer();
 const proxyParams = config.proxyParams
+
+proxy.on('proxyRes', function (proxyRes, req, res) {
+    proxyRes.headers['cache-control'] = 'tpublic, max-age='+ 60 * 60 * 8;
+    // console.log('RAW Response from the target', JSON.stringify(proxyRes.headers, true, 2));
+});
+
 router.get(`/:name(${proxyParams.name})/**`,(ctx, next) => {
     const target = proxyParams.target;
     if(!target){
