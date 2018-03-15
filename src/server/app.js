@@ -7,6 +7,7 @@ const conditional = require('koa-conditional-get');
 const etag = require('koa-etag');
 
 const router = require('./routers')
+const auth = require('./middleware/auth')
 
 const app = new Koa();
 
@@ -20,6 +21,8 @@ module.exports = (options) => {
       }
     }
   }));
+
+  app.use(auth())
 
   app.use(conditional());
   app.use(etag());
