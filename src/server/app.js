@@ -6,8 +6,10 @@ const cors = require('@koa/cors');
 const conditional = require('koa-conditional-get');
 const etag = require('koa-etag');
 
+const config = require('config')
 const router = require('./routers')
 const auth = require('./middleware/auth')
+const attachment = require('./middleware/attachment')
 
 const app = new Koa();
 
@@ -23,11 +25,12 @@ module.exports = (options) => {
   }));
 
   app.use(auth())
+  app.use(attachment())
 
   app.use(conditional());
   app.use(etag());
 
-  const root = path.join(process.cwd(), '../lingximu.github.io/')
+  const root = path.join(process.cwd(), config.staticDir)
   app.use(serve(root,{
     maxage: 1000 * 60 * 60 * 1
   }))
