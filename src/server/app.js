@@ -29,7 +29,7 @@ module.exports = (options) => {
 
   const root = path.join(process.cwd(), '../lingximu.github.io/')
   app.use(serve(root,{
-    maxage: 1000 * 60 * 60 * 8
+    maxage: 1000 * 60 * 60 * 1
   }))
 
   app.use(router.routes())
