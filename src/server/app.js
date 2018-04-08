@@ -5,6 +5,7 @@ const serve = require('koa-static');
 const cors = require('@koa/cors');
 const conditional = require('koa-conditional-get');
 const etag = require('koa-etag');
+const config = require('config')
 
 const router = require('./routers')
 const auth = require('./middleware/auth')
@@ -27,7 +28,7 @@ module.exports = (options) => {
   app.use(conditional());
   app.use(etag());
 
-  const root = path.join(process.cwd(), '../lingximu.github.io/')
+  const root = config.staticRootDir
   app.use(serve(root,{
     maxage: 1000 * 60 * 60 * 1
   }))
