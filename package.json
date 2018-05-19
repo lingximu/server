@@ -1,10 +1,11 @@
 {
-  "name": "firstfly.cn",
+  "name": "blog.lingximu.com",
   "version": "0.0.1",
   "description": "private server entry",
-  "main": "index.js",
+  "main": "lib/server/app.js",
   "scripts": {
-    "start": "node ./src/server/app.js"
+    "dev": "babel-node src/server/app.js",
+    "build": "babel src --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -18,14 +19,23 @@
   "homepage": "https://github.com/chenzhongchen27/firstfly.cn#readme",
   "dependencies": {
     "@koa/cors": "^2.2.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-plugin-transform-es2015-parameters": "^6.24.1",
+    "babel-plugin-transform-es2015-spread": "^6.22.0",
+    "babel-plugin-transform-strict-mode": "^6.24.1",
     "commander": "^2.15.0",
     "config": "^1.30.0",
+    "debug": "^3.1.0",
     "dotenv": "^5.0.1",
     "http-proxy": "^1.16.2",
     "koa": "^2.5.0",
     "koa-conditional-get": "^2.0.0",
     "koa-etag": "^3.0.0",
     "koa-router": "^7.4.0",
-    "koa-static": "^4.0.2"
+    "koa-static": "^4.0.2",
+    "shelljs": "^0.8.2"
   }
 }
