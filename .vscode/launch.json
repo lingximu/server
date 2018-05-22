@@ -6,19 +6,37 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
             "type": "node",
             "request": "launch",
+            "name": "node file",
+            "program": "${file}",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "protocol": "auto",
+            "env": {
+                "NODE_ENV":"development",
+                "DEBUG":"server:*"
+            },
+            "sourceMaps": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "babel-node debug",
             "program": "${workspaceRoot}/cli.js",
             "stopOnEntry": false,
             "args": ["dev"],
             "cwd": "${workspaceRoot}",
             "preLaunchTask": null,
-            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
+            "runtimeExecutable":
+                "${workspaceRoot}/node_modules/.bin/babel-node",
             "runtimeArgs": ["--nolazy"],
             "protocol": "auto",
             "env": {
-                "NODE_ENV": "development"
+                "NODE_ENV": "development",
+                "DEBUG": "server:*",
             },
             "console": "internalConsole",
             "sourceMaps": true,

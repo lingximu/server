@@ -10,7 +10,6 @@ program
     .option('-p, --port <port>', 'port (or $PORT)', Number, process.env.PORT || 8000)
     .action((options) => {
         debug('action debug active')
-        console.log(program)
         const app = require('./src/server/app')({
             root: __dirname,
             port: options.port,
