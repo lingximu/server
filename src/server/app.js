@@ -6,7 +6,8 @@ const cors = require('@koa/cors');
 const conditional = require('koa-conditional-get');
 const etag = require('koa-etag');
 const config = require('config')
-
+const koaBody = require('koa-bodyparser')
+const logger = require('koa-logger')
 const router = require('./routers')
 const auth = require('./middleware/auth')
 
@@ -14,7 +15,7 @@ const app = new Koa();
 
 
 module.exports = (options) => {
-
+  app.use(logger())
   app.use(cors({
     "Access-Control-Allow-Origi": (ctx) => {
       if(/lingximu|localhost|127.0.0.1|101.132.161.32/i.test(ctx.request.origin)){
@@ -22,6 +23,8 @@ module.exports = (options) => {
       }
     }
   }));
+  // boay parse
+  app.use(koaBody());
 
   app.use(auth())
 
@@ -34,6 +37,7 @@ module.exports = (options) => {
   }))
 
   app.use(router.routes())
+  app.use(router.allowedMethods());
 
   router.get('/**', (ctx, next) => {
     ctx.body = "404"
