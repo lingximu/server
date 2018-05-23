@@ -13,7 +13,6 @@ program
         const app = require('./src/server/app')({
             root: __dirname,
             port: options.port,
-            type: 'app',
         });
         app.listen(options.port, (err) => {
             console.info(`Server listen on ${options.port}`);
@@ -36,7 +35,6 @@ program
             const app = require('./dist/server/app')({
                 root: __dirname,
                 port: options.port,
-                type: 'app',
             });
             app.listen(options.port, (err) => {
                 console.info(`Server listen on ${options.port}`);

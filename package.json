@@ -4,7 +4,7 @@
   "description": "private server entry",
   "main": "lib/server/app.js",
   "scripts": {
-    "dev": "babel-node src/server/app.js",
+    "dev": "babel-node ./cli.js dev",
     "build": "babel src --out-dir dist"
   },
   "repository": {

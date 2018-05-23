@@ -1,9 +1,9 @@
 module.exports = {
   apps : [{
-    name   : "app",
+    name   : "server",
     script : "./cli.js",
-    watch  : true,
-    args: "app",
+    watch  : false,
+    args: "online",
     env: {
       "NODE_ENV": "production"
     },
