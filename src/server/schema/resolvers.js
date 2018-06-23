@@ -47,6 +47,70 @@ const posts = [{
     },
 ];
 
+const data_fruits = [{
+        "id": 1,
+        "name": '那么大西瓜',
+        "price": 2.0,
+        "image": 'http://img.lingximu.com/rn/a11.png',
+        "count": 100,
+        "category": "瓜果",
+    },
+    {
+        "id": 2,
+        "name": '营养木瓜',
+        "price": 3.0,
+        "image": 'http://img.lingximu.com/rn/a7.png',
+        "count": 100,
+        "category": "瓜果",
+    },
+    {
+        "id": 3,
+        "name": '美味哈密瓜',
+        "price": 2.5,
+        "image": 'http://img.lingximu.com/rn/a2.png',
+        "count": 100,
+        "category": "瓜果",
+    },
+    {
+        "id": 4,
+        "name": '大柚子',
+        "price": 2.0,
+        "image": 'http://img.lingximu.com/rn/a13.png',
+        "count": 100,
+        "category": "橘果",
+    }, {
+        "id": 5,
+        "name": '小橘子',
+        "price": 5.0,
+        "image": 'http://img.lingximu.com/rn/a4.png',
+        "count": 100,
+        "category": "橘果",
+    }, {
+        "id": 6,
+        "name": '酸溜溜柠檬',
+        "price": 3.0,
+        "image": 'http://img.lingximu.com/rn/a8.png',
+        "count": 100,
+        "category": "橘果",
+    },
+    {
+        "id": 7,
+        "name": '红苹果',
+        "price": 5.0,
+        "image": 'http://img.lingximu.com/rn/a9.png',
+        "count": 100,
+        "category": "仁果",
+    }, {
+        "id": 8,
+        "name": '香蕉',
+        "price": 5.0,
+        "image": 'http://img.lingximu.com/rn/a12.png',
+        "count": 100,
+        "category": "仁果",
+    }
+]
+
+
 const resolvers = {
     Query: {
         posts: () => posts,
@@ -57,6 +121,12 @@ const resolvers = {
                 id
             })
         },
+        fruits: () => {
+            return data_fruits;
+        },
+        fruit: (_,{id})=>{
+            return data_fruits.find(d=>d.id===id)
+        }
     },
 
     Mutation: {

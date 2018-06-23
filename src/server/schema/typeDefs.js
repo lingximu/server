@@ -13,10 +13,21 @@ const typeDefs = `
     votes: Int
   }
 
+  type Fruit {
+    id: Int!
+    name: String!
+    price: Float
+    image: String
+    count: Int
+    category: String
+  }
+
   # the schema allows the following query:
   type Query {
     posts: [Post]
     author(id: Int!): Author
+    fruits: [Fruit]
+    fruit(id: Int!): Fruit
   }
 
   # this schema allows the following mutation:

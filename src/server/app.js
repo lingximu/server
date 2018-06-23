@@ -10,6 +10,7 @@ const koaBody = require('koa-bodyparser')
 const logger = require('koa-logger')
 const router = require('./routers')
 const auth = require('./middleware/auth')
+const config = require('../config')
 
 const app = new Koa();
 
