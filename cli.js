@@ -15,7 +15,12 @@ program
       port: options.port
     });
     app.listen(options.port, (err) => {
-      console.info(`Server listen on ${options.port}`);
+      if (err) {
+        console.error('Server listen occur error ', err);
+        process.exit(1);
+      } else {
+        console.info(`Server listen on ${options.port}`);
+      }
     });
   });
 
@@ -37,7 +42,12 @@ program
       port: options.port
     });
     app.listen(options.port, (err) => {
-      console.info(`Server listen on ${options.port}`);
+      if (err) {
+        console.error('Server listen occur error ', err);
+        process.exit(1);
+      } else {
+        console.info(`Server listen on ${options.port}`);
+      }
     });
   });
 
