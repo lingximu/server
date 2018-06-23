@@ -1,7 +1,7 @@
 const router = require('koa-router')();
-const {graphqlKoa,graphiqlKoa} = require('apollo-server-koa');
+const {graphqlKoa, graphiqlKoa} = require('apollo-server-koa');
 const home = require('./home');
-const schema = require('../schema')
+const schema = require('../schema');
 
 router.use('', home.routes());
 
@@ -9,10 +9,10 @@ router.use('', home.routes());
 router.post('/graphql', graphqlKoa({ schema }));
 router.get('/graphql', graphqlKoa({ schema }));
 router.get(
-    '/graphiql',
-    graphiqlKoa({
-      endpointURL: '/graphql', // a POST endpoint that GraphiQL will make the actual requests to
-    }),
-  );
+  '/graphiql',
+  graphiqlKoa({
+    endpointURL: '/graphql' // a POST endpoint that GraphiQL will make the actual requests to
+  })
+);
 
 module.exports = router;
