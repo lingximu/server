@@ -5,7 +5,7 @@
 'use strict';
 
 const config = require('config');
-const logger = require('../..server/utils/logger');
+const logger = require('@utils/server/logger');
 
 const log = logger.createLogger('myRn:src:server:model:db');
 const dbConfig = config.db;

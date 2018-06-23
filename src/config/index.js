@@ -1,3 +1,5 @@
+// 配置别名
+require('module-alias/register');
 const debug = require('debug')('kp:config:index');
 const VError = require('verror');
 const path = require('path');
@@ -14,4 +16,5 @@ debug('环境变量2 %o', process.env);
 const config = require('config');
 console.log('所有配置 %j', config);
 console.log('hostname: %s', config.util.getEnv('HOSTNAME'));
+
 module.exports = config;

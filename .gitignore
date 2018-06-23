@@ -2,6 +2,7 @@
 .env
 config/local*
 dist
+__*
 
 # Created by https://www.gitignore.io/api/code,node,linux,macos,windows
 
