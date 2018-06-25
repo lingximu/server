@@ -17,6 +17,36 @@ function saveFruit (params) {
   return new Fruit().save(params);
 }
 
+/**
+ * 通过 id 获取对应 fruit 信息
+ * @param {*} id
+ */
+function getFruitById (id) {
+  assert(id);
+  return new Fruit({id})
+    .fetch({
+      withRelated: ['image', 'category']
+    })
+    .then(u => {
+      if (!u) { return {}; } else { return u.toJSON(); }
+    });
+}
+
+/**
+ * 获取 likes 超过一定数量的 fruit
+ * @param {number} like - 要超过的 fruit
+ */
+function getFruitBeyondLikes (like = 0) {
+  return Fruit.query(function (qb) {
+    qb.where('likes', '>=', like);
+  }).fetchAll()
+    .then(u => {
+      if (!u) { return {}; } else { return u.toJSON(); }
+    });
+}
+
 module.exports = {
-  saveFruit
+  saveFruit,
+  getFruitById,
+  getFruitBeyondLikes
 };

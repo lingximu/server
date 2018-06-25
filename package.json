@@ -57,6 +57,7 @@
   },
   "_moduleAliases": {
     "@model": "src/server/model",
-    "@utils": "src/utils"
+    "@utils": "src/utils",
+    "@s-service": "src/server/service"
   }
 }

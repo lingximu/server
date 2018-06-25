@@ -1,40 +1,69 @@
 const typeDefs = `
-  type Author {
+  type Order {
     id: Int!
-    firstName: String
-    lastName: String
-    posts: [Post]
+    money: Float
+    pay: Float
+    summary: String
+    # orm
+    archives: [Archive]
   }
 
-  type Post {
+  type Archive {
     id: Int!
-    title: String
-    author: Author
-    votes: Int
+    price: Float
+    name: String
+    created_at: String
+    updated_at: String
+    #orm
+    order: Order
+    image_url: String
   }
+
+  type User {
+    id: Int!
+    name: String
+    sex: Boolean
+    email: String
+    #not display passwrod
+    #orm
+    orders(name: String): [Order]
+  }
+
 
   type Fruit {
     id: Int!
     name: String!
     price: Float
-    image: String
     count: Int
-    category: String
+    likes: Int
+    #orm
+    image: Image
+    category: Category
+  }
+
+  type Cart {
+    id: Int!
+    fruits(likes:Int): [Fruit]
+  }
+
+  type Image {
+    id: Int!
+    url: String
+  }
+
+  type Category {
+    id: Int!
+    name: String
   }
 
   # the schema allows the following query:
   type Query {
-    posts: [Post]
-    author(id: Int!): Author
-    fruits: [Fruit]
-    fruit(id: Int!): Fruit
+    user(id: Int!): User
+    fruits(likes: Int): [Fruit]
+    cart: Cart
+    order(id: Int!): Order
+    orders(name: String): [Order]
   }
 
-  # this schema allows the following mutation:
-  type Mutation {
-    upvotePost (
-      postId: Int!
-    ): Post
-  }
 `;
 export default typeDefs;

@@ -2,7 +2,13 @@ const db = require('./db');
 
 const User = db.Model.extend({
   tableName: 'user',
-  idAttribute: 'id'
+  idAttribute: 'id',
+  orders () {
+    return this.hasMany(Order);
+  },
+  cart () {
+    return this.hasOne(Cart);
+  }
 });
 
 const Image = db.Model.extend({
@@ -13,11 +19,54 @@ const Image = db.Model.extend({
 const Fruit = db.Model.extend({
   tableName: 'fruit',
   idAttribute: 'id',
+  hasTimestamps: true,
+  category () {
+    return this.belongsTo(Category);
+  },
+  image () {
+    return this.hasOne(Image);
+  }
+});
+
+const Cart = db.Model.extend({
+  tableName: 'cart',
+  idAttribute: 'id',
+  hasTimestamps: true,
+  fruits () {
+    return this.belongsToMany(Fruit, 'cart_fruit');
+  }
+});
+
+const Archive = db.Model.extend({
+  tableName: 'archive',
+  idAttribute: 'id',
   hasTimestamps: true
+});
+
+const Category = db.Model.extend({
+  tableName: 'category',
+  idAttribute: 'id',
+  hasTimestamps: true,
+  fruits () {
+    return this.hasMany(Fruit);
+  }
+});
+
+const Order = db.Model.extend({
+  tableName: 'order',
+  idAttribute: 'id',
+  hasTimestamps: true,
+  archives () {
+    return this.hasMany(Archive);
+  }
 });
 
 module.exports = {
   User,
   Fruit,
-  Image
+  Image,
+  Cart,
+  Archive,
+  Category,
+  Order
 };
