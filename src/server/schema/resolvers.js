@@ -1,6 +1,6 @@
 /* eslint-disable no-debugger */
 const { getUserById } = require('@s-service/base/userDb');
-const { getFruitById, getFruitBeyondLikes } = require('@s-service/base/fruitDb');
+const { getFruitBeyondLikes } = require('@s-service/base/fruitDb');
 const { getCartById } = require('@s-service/base/cartDb');
 const { getOrderById, getOrdersByUserName } = require('@s-service/base/orderDb');
 
@@ -21,9 +21,6 @@ const resolvers = {
     orders: (parent, {name}) => {
       return getOrdersByUserName(name);
     }
-  },
-  Fruit: (fruit) => {
-    if (fruit.name && fruit.price !== undefined) { return fruit; } else { return getFruitById(fruit.id); }
   }
 };
 
