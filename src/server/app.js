@@ -24,7 +24,7 @@ module.exports = (options) => {
       }
     }
   }));
-  // boay parse
+  // body parse
   app.use(koaBody());
 
   app.use(auth());
