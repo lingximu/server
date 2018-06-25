@@ -12,8 +12,8 @@ const resolvers = {
     fruits: (parent, {likes = 0}) => {
       return getFruitBeyondLikes(likes);
     },
-    cart: (root) => {
-      return getCartById();
+    cart: (root, {id}) => {
+      return getCartById(id);
     },
     order: (parent, {id}) => {
       return getOrderById(id);

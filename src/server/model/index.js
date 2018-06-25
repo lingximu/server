@@ -24,7 +24,7 @@ const Fruit = db.Model.extend({
     return this.belongsTo(Category);
   },
   image () {
-    return this.hasOne(Image);
+    return this.belongsTo(Image);
   }
 });
 

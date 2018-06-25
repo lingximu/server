@@ -60,7 +60,7 @@ const typeDefs = `
   type Query {
     user(id: Int!): User
     fruits(likes: Int): [Fruit]
-    cart: Cart
+    cart(id: Int!): Cart
     order(id: Int!): Order
     orders(name: String): [Order]
   }
