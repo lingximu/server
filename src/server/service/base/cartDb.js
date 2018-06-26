@@ -9,7 +9,7 @@ function getCartById (id) {
   assert(id);
   return new Cart({id})
     .fetch({
-      withRelated: ['fruits', 'fruits.image']
+      withRelated: ['fruits', 'fruits.image', 'fruits.category']
     })
     .then(u => {
       if (!u) { return {}; } else { return u.toJSON(); }
