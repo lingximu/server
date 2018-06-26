@@ -41,6 +41,16 @@ const typeDefs = `
     category: Category
   }
 
+  type PureFruit {
+    id: Int!
+    name: String!
+    price: Float
+    count: Int
+    likes: Int
+    #orm
+    image: Image
+  }
+
   type Cart {
     id: Int!
     fruits(likes:Int): [Fruit]
@@ -54,6 +64,7 @@ const typeDefs = `
   type Category {
     id: Int!
     name: String
+    fruits: [PureFruit]
   }
 
   # the schema allows the following query:
@@ -63,6 +74,7 @@ const typeDefs = `
     cart(id: Int!): Cart
     order(id: Int!): Order
     orders(name: String): [Order]
+    categories:[Category]
   }
 
 `;

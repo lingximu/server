@@ -2,6 +2,7 @@
 const { getUserById } = require('@s-service/base/userDb');
 const { getFruitBeyondLikes } = require('@s-service/base/fruitDb');
 const { getCartById } = require('@s-service/base/cartDb');
+const { getCategories } = require('@s-service/base/categoryDb');
 const { getOrderById, getOrdersByUserName } = require('@s-service/base/orderDb');
 
 const resolvers = {
@@ -20,6 +21,9 @@ const resolvers = {
     },
     orders: (parent, {name}) => {
       return getOrdersByUserName(name);
+    },
+    categories: (root) => {
+      return getCategories();
     }
   }
 };
