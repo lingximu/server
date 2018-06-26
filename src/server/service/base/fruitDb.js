@@ -40,6 +40,9 @@ function getFruitBeyondLikes (like = 0) {
   return Fruit.query(function (qb) {
     qb.where('likes', '>=', like);
   }).fetchAll()
+    .then(c => {
+      return c.load(['image', 'category']);
+    })
     .then(u => {
       if (!u) { return {}; } else { return u.toJSON(); }
     });
