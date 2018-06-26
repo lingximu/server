@@ -31,6 +31,8 @@ program
   .option('-p, --port <port>', 'port (or $PORT)', Number, process.env.PORT || 8000)
   .option('--no-build', 'can not exec npm build')
   .action((options) => {
+    // babel build at production,look at .babelrc
+    process.env.NODE_ENV = 'production';
     debug('action online active');
     debug('options.build %o', options.build);
     if (options.build) {
