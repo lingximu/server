@@ -1,4 +1,5 @@
 const {Category} = require('@model/index');
+const disturbArray = require('@utils/disturbArray');
 
 /**
  * 通过 id 获取用户信息
@@ -11,6 +12,12 @@ function getCategories (id) {
     })
     .then(m => {
       if (!m) { return null; } else { return m.toJSON(); }
+    })
+    .then((mArr) => {
+      mArr.forEach(m => {
+        m.fruits = disturbArray(m.fruits);
+      });
+      return mArr;
     });
 }
 

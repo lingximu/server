@@ -1,5 +1,6 @@
 const assert = require('assert');
 const { Fruit } = require('@model/index');
+const disturbArray = require('@utils/disturbArray');
 
 /**
  * 保存 fruit 信息
@@ -45,6 +46,10 @@ function getFruitBeyondLikes (like = 0) {
     })
     .then(u => {
       if (!u) { return {}; } else { return u.toJSON(); }
+    })
+    .then(m => {
+      m = disturbArray(m);
+      return m;
     });
 }
 
