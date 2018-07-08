@@ -4,7 +4,15 @@
     "transform-es2015-modules-commonjs",
     "transform-es2015-spread",
     "transform-es2015-destructuring",
-    "transform-es2015-parameters"
+    "transform-es2015-parameters",
+    ["module-resolver", {
+      "alias": {
+        "@model": "./src/server/model",
+        "@utils": "./src/utils",
+        "@s-service": "./src/server/service"
+      },
+      "extensions": [".js", ".json"]
+    }]
   ],
   "env": {
     "development": {
