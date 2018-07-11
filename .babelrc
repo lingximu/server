@@ -7,6 +7,7 @@
     }]
   ],
   "plugins": [
+    "transform-do-expressions",
     ["module-resolver", {
       "alias": {
         "@model": "./src/server/model",
